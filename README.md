@@ -1,17 +1,20 @@
-# Auto Z-Offset Calibration for the QIDI Q1 Pro
+*NOTE*
+this is a fork of plugin specially for kalico (bleeding edge v2 branch). Original [plugin](https://github.com/frap129/qidi_auto_z_offset) by [frap129](https://github.com/frap129), author of great [OpenQ1](https://github.com/frap129/OpenQ1).
+
+# Auto Z-Offset Calibration for the QIDI Q1 Pro (Kalico edition)
 
 This is a plugin for Klipper that makes use of the QIDI Q1 Pro's bed sensors to automatically set the toolheads Z-Offset.
 
 ⚠️ **NOTE** ⚠️
 This should not be used at the begining of a print! If the bed sensors fail to trigger, or trigger to late, you can end up
-grinding the nozzle into the bed when you got to start a print. Instead, you should run `AUTO_Z_CALIBRATE_OFFSET` prior to
+grinding the nozzle into the bed when you got to start a print. Instead, you should run `AUTO_Z_CALIBRATE` prior to
 your first print, move Z to 0, and verify that you can slide a piece of paper under the nozzle.
 
 ### Install
 ```
 cd ~
-git clone https://github.com/frap129/qidi_auto_z_offset
-ln -s ~/qidi_auto_z_offset/auto_z_offset.py ~/klipper/klippy/extras/auto_z_offset.py
+git clone https://github.com/cryoz/qidi_auto_z_offset_kalico
+ln -s ~/qidi_auto_z_offset_kalico/auto_z_offset.py ~/klipper/klippy/extras/auto_z_offset.py
 ```
 
 ### Command Reference
@@ -65,6 +68,7 @@ prepare_gcode:
 
 ### Example Configuration from OpenQ1
 This example config also includes the control pin for the bed sensors and the config for the inductive probe. Use them as shown for the best compatiblity.
+Microprobe variant are the same.
 ```
 [output_pin bed_sensor]
 pin: !U_1:PA14
